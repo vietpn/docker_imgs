@@ -6,7 +6,7 @@ RUN cd ~ && \
 	rpm -ivh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 
 RUN yum -y install php56w php56w-opcache && \
-	yum -y install php56w-fpm php56w-opcache php56w-mbstring php56w-mysql php56w-cli php56w-xml && \
+	yum -y install php56w-fpm php56w-opcache php56w-mbstring php56w-mysql php56w-cli php56w-xml php56w-mcrypt && \
 	systemctl enable php-fpm
 
 # Install composer
