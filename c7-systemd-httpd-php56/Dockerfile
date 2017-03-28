@@ -63,5 +63,5 @@ RUN useradd jenkins && \
     mkdir -p /app/log/httpd && \
     chown jenkins:www -R /app/www/
 
-VOLUME [ "/var/log/httpd", "/var/log/php-fpm" ]
+VOLUME [ "/var/log/httpd", "/var/log/php-fpm", "/app/log", "app/www"]
 CMD ["/usr/sbin/init"]
