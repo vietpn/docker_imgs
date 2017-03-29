@@ -69,7 +69,7 @@ EXPOSE 80
 RUN useradd jenkins && \
     groupadd www && \
     usermod -a -G www jenkins && \
-    usermod -a -G www nginx && \
+    usermod -a -G www apache && \
     mkdir -p /app/www && \
     mkdir -p /app/log/nginx && \
     mkdir -p /app/log/httpd && \
