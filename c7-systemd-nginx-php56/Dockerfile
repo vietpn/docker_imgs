@@ -1,4 +1,15 @@
-FROM local/c7-systemd
+FROM centos:7
+MAINTAINER "vietpn" <vietpnk53@gmail.com>
+ENV container docker
+RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \
+systemd-tmpfiles-setup.service ] || rm -f $i; done); \
+rm -f /lib/systemd/system/multi-user.target.wants/*;\
+rm -f /etc/systemd/system/*.wants/*;\
+rm -f /lib/systemd/system/local-fs.target.wants/*; \
+rm -f /lib/systemd/system/sockets.target.wants/*udev*; \
+rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
+rm -f /lib/systemd/system/basic.target.wants/*;\
+rm -f /lib/systemd/system/anaconda.target.wants/*;
 
 # Install php56
 RUN cd ~ && \
@@ -34,6 +45,6 @@ RUN useradd jenkins && \
     mkdir -p /app/log/httpd && \
     chown jenkins:www -R /app/www/
 
-VOLUME [ "/var/log/nginx", "/var/log/php-fpm", "/app/log", "app/www"]
+VOLUME [ "/sys/fs/cgroup", "/var/log/nginx", "/var/log/php-fpm", "/app/log", "app/www"]
 
 CMD ["/usr/sbin/init"]
