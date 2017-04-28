@@ -11,6 +11,10 @@ rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
 rm -f /lib/systemd/system/basic.target.wants/*;\
 rm -f /lib/systemd/system/anaconda.target.wants/*;
 
+# install common packages
+RUN yum -y install vim && \
+    yum -y groupinstall "Development Tools" && \
+
 # Install php56
 RUN cd ~ && \
 	rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
