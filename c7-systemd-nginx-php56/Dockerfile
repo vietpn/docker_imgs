@@ -14,6 +14,7 @@ rm -f /lib/systemd/system/anaconda.target.wants/*;
 # install common packages
 RUN yum -y install vim && \
     yum -y groupinstall "Development Tools" && \
+    yum -y install network-tools
 
 # Install php56
 RUN cd ~ && \
