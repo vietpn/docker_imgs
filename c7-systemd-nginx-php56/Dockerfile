@@ -1,5 +1,5 @@
 FROM centos:7
-MAINTAINER "vietpn" <vietpnk53@gmail.com>
+MAINTAINER "The CentOS7 Project" <vietpnk53@gmail.com>
 ENV container docker
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \
 systemd-tmpfiles-setup.service ] || rm -f $i; done); \
