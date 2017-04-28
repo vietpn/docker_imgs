@@ -27,6 +27,9 @@ RUN cd ~ && \
 	mv composer.phar /usr/local/bin/composer && \
 	ln -s /usr/local/bin/composer /usr/bin/composer
 
+# Install memcache on centos
+RUN yum -y install memcached && \
+    systemctl enable memcached
 
 # Install nginx
 RUN yum -y install epel-release && \

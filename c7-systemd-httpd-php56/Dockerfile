@@ -65,6 +65,10 @@ RUN cd ~ && \
 RUN systemctl enable httpd.service
 EXPOSE 80
 
+# Install memcache on centos
+RUN yum -y install memcached && \
+    systemctl enable memcached
+
 # Setup projects
 RUN useradd jenkins && \
     groupadd www && \
